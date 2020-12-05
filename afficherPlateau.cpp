@@ -31,6 +31,16 @@ struct Jeu
 //----------------------------
 
 
+
+//--------------------------------------------------------------------------------------
+//fonction d'aide pour vérifier:
+void lireJeton(Jeton jeton){
+    cout<< "couleur : " << jeton.couleur<< endl;
+    cout<< "ligne : " << jeton.ligne << '\n' << "colonne : " << jeton.colonne << endl; 
+}
+//--------------------------------------------------------------------------------------
+
+
 void affichePlateau(Jeu jeu){
     for(int ligne=1;ligne<=8;ligne++){
         //traits horizontaux
@@ -103,12 +113,15 @@ int main(){
     Jeu jeu;
     Joueur j1;
     Joueur j2;
-    nouveauJoueur(&j1,"bernard",0,'w');
+    Jeton jet;
+    nouveauJoueur(&j1,"bernard",0,'w'); //--> ok
     nouveauJoueur(&j2,"bob",0,'b');
-    cout<< j1.nom<<endl;
-    initJeu(&jeu,&j1,&j2);
+    nouveauJeton(&jet,3,3,'w',jeu); //-> pb sur la struct plateau (la struct jeton est ok normalement)
 
-    affichePlateau(jeu);
-    cout << (char)jeu.plateau[3][3].couleur;//ca ne marche pas !!
+/*    initJeu(&jeu,&j1,&j2);*/
+
+/*    affichePlateau(jeu);*/
+
+lireJeton(jeu.plateau[3][3]);
 return 0;
 }
