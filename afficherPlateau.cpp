@@ -40,21 +40,23 @@ void affichePlateau(Jeu jeu){
         cout << '+'<<endl;
 
         //traits verticaux
+
         for(int colonne=1 ; colonne<=8;colonne++){
             char cont=' ';
-            if(jeu.plateau[colonne][ligne].couleur=='w'){
-                cont='0';
-            }
-            else{
-                if(jeu.plateau[colonne][ligne].couleur=='b'){
+
+            switch (jeu.plateau[colonne][ligne].couleur){
+                case 'w':
+                    cont='0';
+
+                case 'b':
                     cont='*';
                 }
-                cout << '|' << ' ' <<cont <<' ' ;
-            }
+        cout << '|' << ' ' <<cont <<' ' ;
         }
         cout << '|'<< endl;
     }
 }
+
 
 //crée un nouveau joueur dans la structure Joueur
 void nouveauJoueur(Joueur *joueur, char nom[20], int nbJetons, char couleur){
@@ -106,7 +108,7 @@ int main(){
     cout<< j1.nom<<endl;
     initJeu(&jeu,&j1,&j2);
 
-/*    affichePlateau(jeu);*/
+    affichePlateau(jeu);
     cout << (char)jeu.plateau[3][3].couleur;//ca ne marche pas !!
 return 0;
 }
