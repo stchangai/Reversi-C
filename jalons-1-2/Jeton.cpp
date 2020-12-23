@@ -75,6 +75,25 @@ void PlaceUnJeton(Jeu *jeu,int *nbTours, Joueur *joueurActif, Joueur *joueurAdve
     }
 }
 
+bool estCaseVide(Jeu *jeu,int colonne,int ligne){
+    Joueur *joueur1 = jeu->joueur1;
+    Jeton *current= joueur1->first;
+    for(int i=0; i<(joueur1->nbJetons); i++){
+        if(current->colonne==colonne && current->ligne==ligne){
+            return true;}
+        else{current=current->next;}
+    }
+
+    Joueur *joueur2=jeu->joueur2;
+    current=joueur2->first;
+    for((i=0; i<(joueur2->nbJetons); i++){
+        if(current->colonne==colonne && current->ligne==ligne){
+            return true;}
+        else{current=current->next;}
+    }
+
+    return true;
+}
 
 bool IsJetonCorrect(Jeu *jeu, int colonne, int ligne, Joueur *joueurActif, Joueur *joueurAdverse/*, int numJoueur*/){
     coordonnees tabcoordonnees[9];
@@ -85,9 +104,13 @@ bool IsJetonCorrect(Jeu *jeu, int colonne, int ligne, Joueur *joueurActif, Joueu
 
     int jetonGagne = 0;
     int tourWhile = 0;
-    char couleurAdverse;
+    char couleurAdverse=joueurAdverse->couleur;
+    /*
     if(joueurActif->couleur == 'w'){couleurAdverse = 'b';}   
-    if(joueurActif->couleur == 'b'){couleurAdverse = 'w';}
+    if(joueurActif->couleur == 'b'){couleurAdverse = 'w';}*/
+    
+    if (estCaseVide(jeu,colonne,ligne)){
+    
     // boucles for l'une dans l'autre pour vérifier autour de l'emplacement la présence de pion adverse
     for (int col = -1; col < 2; ++col)
     {
@@ -143,4 +166,6 @@ bool IsJetonCorrect(Jeu *jeu, int colonne, int ligne, Joueur *joueurActif, Joueu
         return true;
     }
     else{ return false;}
+    }
+    else{return false;}//si la case est pleine
 }
