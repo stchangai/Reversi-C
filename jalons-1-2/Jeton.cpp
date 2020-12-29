@@ -80,15 +80,15 @@ bool estCaseVide(Jeu *jeu,int colonne,int ligne){
     Jeton *current= joueur1->first;
     for(int i=0; i<(joueur1->nbJetons); i++){
         if(current->colonne==colonne && current->ligne==ligne){
-            return true;}
+            return false;}
         else{current=current->next;}
     }
 
     Joueur *joueur2=jeu->joueur2;
     current=joueur2->first;
-    for((i=0; i<(joueur2->nbJetons); i++){
+    for(int i=0; i<(joueur2->nbJetons); i++){
         if(current->colonne==colonne && current->ligne==ligne){
-            return true;}
+            return false;}
         else{current=current->next;}
     }
 
