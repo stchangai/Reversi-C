@@ -110,7 +110,7 @@ void assistant(Jeu *jeu, Joueur *joueurActif)
     coordonnees placements[MAXPLACEMENTS];
 //    placements* =(coordonnees*) malloc(MAXPLACEMENTS * sizeof(coordonnees));
     
-    while(current->next)
+    while(current)
     {
         assistant_Jeton(jeu, current,placements, &nb_case);   
         current=current->next;
