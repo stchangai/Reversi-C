@@ -20,7 +20,7 @@ AI.o: AI.cpp structures.h AI.h jeu.h joueur.h jeton.h
 Assistant.o : Assistant.cpp assistant.h structures.h jeu.h jeton.h
 	gcc -c Assistant.cpp -Wall
 
-main.o: main.cpp structures.h jeu.h joueur.h jeton.h Ai.h assistant.h
+main.o: main.cpp structures.h jeu.h joueur.h jeton.h AI.h assistant.h
 	gcc -c main.cpp -Wall
 
 clean :

@@ -81,7 +81,7 @@ void ExitJeu(char coordonnees[2]){
 char ChooseYourGame(Joueur *j1, Joueur *j2, int *IsWhite){
     char playWithAI = 'z'; // random character 
     while(playWithAI != 'n' && playWithAI != 'y'){
-        cout << "Do you want to play against the computer ? y/n : ";
+        cout << "Voulez vous jouer contre l'Ordinateur ? y/n : ";
         cin >> playWithAI;
     }
     if(playWithAI == 'y'){
@@ -122,7 +122,7 @@ bool PlateauRempli(Jeu jeu){
     Joueur *winner;
     bool estFini = false;
     int totalJetons = jeu.joueur1->nbJetons + jeu.joueur2->nbJetons;
-    cout << "nb total jetons plateau : " << totalJetons << endl;  
+    cout << "nomb total jetons plateau : " << totalJetons << endl;  
 
     if(totalJetons == 64){
         estFini = true;

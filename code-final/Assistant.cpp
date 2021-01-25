@@ -118,6 +118,13 @@ int assistant(Jeu *jeu, Joueur *joueurActif)
     if(nb_case == 0){
         return 1;
     }
-    afficheListeCoordonnees(placements, nb_case);
+
+    char reponse_utilisateur;
+    cout << "Voulez vous utiliser l'assistant ? (y/n) "<< endl;
+    cin >> reponse_utilisateur;
+    if(reponse_utilisateur=='y')
+    {
+        afficheListeCoordonnees(placements, nb_case);
+    }
     return 0;
 }
