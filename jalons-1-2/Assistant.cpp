@@ -64,15 +64,13 @@ void assistant_Jeton(Jeu *jeu, Jeton *jeton, coordonnees* placements, int* nb_ca
             coordonneesY = colonne + col;
             coordonneesX = ligne + l; 
             if((*jeu).plateau[coordonneesY][coordonneesX].couleur == couleurAdverse)
-            {
+            {}
                 // on vérifie s'il n'y a pas un autre pion adverse qui suit le pion détecté précédemment
-                while((*jeu).plateau[coordonneesY+col][coordonneesX+l].couleur == couleurAdverse)
+                while((*jeu).plateau[coordonneesY][coordonneesX].couleur == couleurAdverse)
                 {
                     coordonneesY = coordonneesY+col;
                     coordonneesX = coordonneesX + l;
                 }
-                coordonneesY = coordonneesY + col;
-                coordonneesX = coordonneesX + l;
 
                 if (estCaseVide(jeu,coordonneesX,coordonneesY) && estDejaPresent(placements,coordonneesX,coordonneesY,*nb_case)==false)
                 {
@@ -92,9 +90,9 @@ void afficheListeCoordonnees(coordonnees placements[], int nb_case)
     {
         for (int i = 0; i < 8; ++i)
         {
-            if(placements[count].x==i+1)
+            if(placements[count].y==i+1)
             {
-                cout << lettreConvert[i] << placements[count].y<< " ";
+                cout << lettreConvert[i] << placements[count].x<< " ";
             }
         }
     }
